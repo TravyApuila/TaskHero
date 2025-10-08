@@ -19,14 +19,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TaskHeroApp() {
-    var tasks by remember { mutableStateOf(listOf<String>()) }
+    val tasks = remember { mutableStateListOf<String>() } // mutable list
+
     var showAddScreen by remember { mutableStateOf(false) }
     var selectedTask by remember { mutableStateOf<String?>(null) }
 
     when {
         showAddScreen -> AddTaskScreen(
             onSave = { newTask ->
-                tasks = tasks + newTask
+                tasks.add(newTask) // langsung bisa add
                 showAddScreen = false
             },
             onCancel = { showAddScreen = false }
@@ -38,7 +39,8 @@ fun TaskHeroApp() {
         else -> MainScreen(
             tasks = tasks,
             onAddClick = { showAddScreen = true },
-            onTaskClick = { selectedTask = it }
+            onTaskClick = { task -> selectedTask = task },
+            onDeleteClick = { task -> tasks.remove(task) } // sekarang bisa
         )
     }
 }

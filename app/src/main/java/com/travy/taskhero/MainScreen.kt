@@ -8,12 +8,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 
 @Composable
 fun MainScreen(
     tasks: List<String>,
     onAddClick: () -> Unit,
-    onTaskClick: (String) -> Unit
+    onTaskClick: (String) -> Unit,
+    onDeleteClick: (String) -> Unit  // Tambahkan callback hapus
 ) {
     Scaffold(
         floatingActionButton = {
@@ -36,13 +39,27 @@ fun MainScreen(
             } else {
                 LazyColumn {
                     items(tasks) { task ->
-                        Text(
-                            text = task,
+                        Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable { onTaskClick(task) }
-                                .padding(8.dp)
-                        )
+                                .padding(vertical = 4.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = task,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { onTaskClick(task) }
+                                    .padding(8.dp)
+                            )
+
+                            IconButton(onClick = { onDeleteClick(task) }) {
+                                Icon(
+                                    imageVector = Icons.Default.Delete,
+                                    contentDescription = "Hapus Task"
+                                )
+                            }
+                        }
                         Divider()
                     }
                 }
