@@ -3,7 +3,7 @@
 A simple To-Do List Android application to help users manage daily tasks easily and efficiently.
 
 ## 👥 Anggota Kelompok
-- Aldi Zaki Aulia (221234567)
+- Aldi Zaki Aulia (231402130)
 - [Nama Anggota 2] (NIM)
 - [Nama Anggota 3] (NIM)
 
