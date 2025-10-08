@@ -3,45 +3,42 @@ package com.travy.taskhero
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.*
 import com.travy.taskhero.ui.theme.TaskHeroTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             TaskHeroTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                TaskHeroApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun TaskHeroApp() {
+    var tasks by remember { mutableStateOf(listOf<String>()) }
+    var showAddScreen by remember { mutableStateOf(false) }
+    var selectedTask by remember { mutableStateOf<String?>(null) }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TaskHeroTheme {
-        Greeting("Android")
+    when {
+        showAddScreen -> AddTaskScreen(
+            onSave = { newTask ->
+                tasks = tasks + newTask
+                showAddScreen = false
+            },
+            onCancel = { showAddScreen = false }
+        )
+        selectedTask != null -> TaskDetailScreen(
+            task = selectedTask!!,
+            onBack = { selectedTask = null }
+        )
+        else -> MainScreen(
+            tasks = tasks,
+            onAddClick = { showAddScreen = true },
+            onTaskClick = { selectedTask = it }
+        )
     }
 }
