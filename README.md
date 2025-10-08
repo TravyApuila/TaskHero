@@ -1,14 +1,18 @@
 # TaskHero
 
-A simple To-Do List Android application to help users manage daily tasks easily and efficiently.
+TaskHero adalah aplikasi to-do list berbasis Android yang membantu pengguna mencatat, mengelola, dan menyelesaikan tugas sehari-hari dengan mudah. Aplikasi ini dirancang sederhana namun fungsional, dilengkapi fitur CRUD (Create, Read, Update, Delete), filter tugas, serta tampilan tema gelap untuk kenyamanan pengguna.
 
 ## 👥 Anggota Kelompok
+- Travy Apuila Jasa Said (231402094)
+- Ilyas Rafif Hasian Munthe (231402113)
+- Muhammad Abyan Khairi (231402117)
+- Mohamad Rifa Algifari Mulia Sembiring (231402121)
 - Aldi Zaki Aulia (231402130)
-- [Nama Anggota 2] (NIM)
-- [Nama Anggota 3] (NIM)
+- Jaysha Anbiya Harris (231402133)
+
 
 ## 📱 Deskripsi Project
-Aplikasi ini dikembangkan menggunakan **Android Studio** dengan bahasa **Kotlin (atau Java)**.
+Aplikasi ini dikembangkan menggunakan **Android Studio** dengan bahasa **Kotlin**.
 Jenis aplikasi: **Native Android App**  
 SDK Version: `Android SDK 34`  
 Gradle Version: `8.x`  
@@ -32,4 +36,5 @@ Minimum SDK: `Android 8.0 (Oreo)`
 ## ⚙️ Cara Menjalankan
 1. Clone repository:
    ```bash
-   git clone https://github.com/username/todo-list-app.git
+   git clone https://github.com/TravyApuila/TaskHero.git
+   
