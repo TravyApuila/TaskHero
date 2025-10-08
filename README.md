@@ -1,6 +1,6 @@
 # TaskHero
 
-A simple To-Do List Android application to help users manage daily tasks easily and efficiently.
+TaskHero adalah aplikasi to-do list berbasis Android yang membantu pengguna mencatat, mengelola, dan menyelesaikan tugas sehari-hari dengan mudah. Aplikasi ini dirancang sederhana namun fungsional, dilengkapi fitur CRUD (Create, Read, Update, Delete), filter tugas, serta tampilan tema gelap untuk kenyamanan pengguna.
 
 ## 👥 Anggota Kelompok
 - Travy Apuila Jasa Said (231402094)
